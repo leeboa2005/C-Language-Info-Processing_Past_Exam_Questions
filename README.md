@@ -304,7 +304,7 @@ printf("%d\n", *arr[1] + **arr + 1);
 
 <hr>
 
-**21년 3회**
+**21년 3회😿**
 
 ```c
 #include <stdio.h>
@@ -398,7 +398,7 @@ func(1) = 1 (기저 사례)  <br>
 
 <hr>
 
-**22년 1회**
+**22년 1회😿**
 
 아래 프로그램은 정수를 역순으로 출력하는데 (1)(2)(3)에 들어갈 연산자를 쓰시오
 
@@ -566,6 +566,7 @@ sum = sum + b[2] + a[3] → sum = 10 + 4 + 8 = 22 <br>
 
 <hr>
 
+**22년 3회😿😿** <br>
 아래는 C언어의 2차원 배열 형태이다. field의 경우 2차원 배열 형태는 예시처럼 출력되므로, 이를 참고하여 mines의 2차원 배열 형태를 작성하시오. 
 
 ```c 
@@ -761,7 +762,7 @@ qwe
 
 <hr> 
 
-**23년 1회**
+**23년 1회😿**
 
 다음은 이진수에서 십진수로 변환하는 코드이다.  (가)는 연산자이고 (나)는 정수일 때 빈칸을 알맞게 쓰시오.
 
@@ -857,7 +858,7 @@ int main(void) {
 - (나)에는 배열의 길이인 nx가 들어가야 합니다. 즉, Usort(arr, nx);로 호출.<br>
 <hr>
 
-**23년 2회**
+**23년 2회😿**
 
 입력값이 순서대로 5, 4, 3, 2, 1일 경우 출력값이 43215로 출력 되도록 빈칸(가)에 들어갈 코드를 작성하시오.
 
@@ -896,7 +897,7 @@ n[(5) % 5] = n[5] (1번째 요소)<br>
 
 <hr>
 
-**23년 2회**
+**23년 2회😿**
 a,b,c,d의 빈칸에 알맞은 식을 <보기>에서 찾아쓰는데 <보기>를 최소한으로 쓰시오.
 
 <보기> <br>
@@ -904,10 +905,10 @@ a,b,c,d의 빈칸에 알맞은 식을 <보기>에서 찾아쓰는데 <보기>를
 500  <br>
 100  <br>
 10 <br>
-% <br>
-/ <br>
-+ <br>
--
+`%` <br>
+`/` <br>
+`+` <br>
+`-`<br>
 
 ```c
 #include<stdio.h> 
@@ -1073,10 +1074,9 @@ int main(void){
 - 1부터 2023까지의 숫자 중에서 4의 배수가 몇 개인지를 계산하고 출력<br>
 - 4의 배수는 4, 8, 12, ..., 2020까지 포함되므로, 출력 결과는 505
 
-
 <hr>
 
-**23년 2회**
+**23년 2회😿😿**
 
 ```c
 #include<stdio.h>
@@ -1126,5 +1126,274 @@ int main(int argc, char const *argv[])
         printf("%d", take()); 
     }
     return 0;
+}
+```
+
+<details>
+<summary>✅ 정답</summary>
+213465
+</details>
+<br>
+
+🖋 **문제 풀이** <br> <br>
+1. 초기 입력<br>
+into(5): 스택에 5 추가 → 스택: [5]<br>
+into(2): 스택에 2 추가 → 스택: [5, 2]<br><br>
+
+2.첫 번째 while 반복 (!isEmpty()):<br>
+printf("%d", take());: 2 꺼내기 → 출력: 2 → 스택: [5]<br>
+into(4): 스택에 4 추가 → 스택: [5, 4]<br>
+into(1): 스택에 1 추가 → 스택: [5, 4, 1]<br>
+printf("%d", take());: 1 꺼내기 → 출력: 1 → 스택: [5, 4]<br>
+into(3): 스택에 3 추가 → 스택: [5, 4, 3]<br>
+printf("%d", take());: 3 꺼내기 → 출력: 3 → 스택: [5, 4]<br>
+printf("%d", take());: 4 꺼내기 → 출력: 4 → 스택: [5]<br>
+into(6): 스택에 6 추가 → 스택: [5, 6]<br>
+printf("%d", take());: 6 꺼내기 → 출력: 6 → 스택: [5]<br>
+printf("%d", take());: 5 꺼내기 → 출력: 5 → 스택: [] (비어있음)<br><br>
+3. while 종료: 스택이 비어 있으므로 반복문 종료.
+
+<hr>
+
+**23년 2회**
+
+다음은 선택정렬을 하는 코드이다. (가)에 들어갈 기호를 쓰시오.
+
+```c
+#include<stdio.h>
+int main(void){
+int E[] = {64, 25, 12, 22, 11};
+    int n = sizeof(E) / sizeof(E[0]);
+    
+    int i = 0;
+    do {
+        int j = i + 1;
+        do {
+ 
+            if (E[i] (가) E[j]) {
+                int tmp = E[i];
+                E[i] = E[j];
+                E[j] = tmp;
+            }
+            j++;
+ 
+       } while (j < n);
+       
+       i++;
+    } while (i < n - 1);
+    
+return 0;
+    
+}
+
+```
+<details>
+<summary>✅ 정답</summary>
+(가) : >
+</details>
+<br>
+
+🖋 **문제 풀이** <br> <br>
+1. 선택 정렬은 배열에서 가장 작은(또는 큰) 요소를 찾아서 현재 위치와 교환하는 방식으로 작동
+2. 주어진 코드에서는 E[i]와 E[j]를 비교하여 E[i]가 E[j]보다 크면 두 값을 교환하고 있다.
+3. 따라서 E[i]가 E[j]보다 클 때 교환을 하므로, 비교 연산자는 >가 적절하다.
+
+<hr>
+
+**23년 3회** (20년 4회 10번 문제와 거의 동일)
+
+```c
+#include <stdio.h>
+int main() {
+	char* p = "KOREA";
+	printf("%s\n", p);
+	printf("%s\n", p+1);
+	printf("%c\n", *p);
+	printf("%c\n", *(p+3));
+	printf("%c\n", *p+4);
+}
+```
+
+<details>
+<summary>✅ 정답</summary>
+KOREA<br>
+OREA<br>
+K<br>
+E<br>
+O<br>
+</details>
+<br>
+
+🖋 **문제 풀이** <br> <br>
+
+1. printf("%s\n", p);<br>
+- p가 가리키는 문자열 "KOREA"를 출력합니다. <br>
+- 출력: KOREA <br> 
+
+2. printf("%s\n", p+1);<br>
+- p+1은 문자열의 두 번째 문자부터 시작하므로 "OREA"를 출력 <br>
+- 출력: OREA <br> 
+
+3. printf("%c\n", *p); <br>
+- *p는 p가 가리키는 첫 번째 문자인 'K'를 출력 <br>
+- 출력: K <br>
+
+4. printf("%c\n", *(p+3)); <br>
+- *(p+3)는 p의 네 번째 문자인 'E'를 출력 <br>
+- 출력: E <br> 
+
+5. printf("%c\n", *p+4); <br>
+- 여기서 *p는 'K'이고, 'K'의 ASCII 값은 75 출력 <br>
+- *p + 4는 75 + 4 = 79에 해당하는 문자 'O'를 출력 <br>
+- 출력: O
+
+<hr>
+
+**23년 3회**
+
+C언어에서 구조체의 멤버에 접근하기 위한 기호를 쓰시오.
+
+<details>
+<summary>✅ 정답</summary>
+-> 
+</details>
+<br>
+
+🖋 **문제 풀이** <br> <br>
+
+1. `->` 기호 예시  코드
+📄 `-> (화살표)`: **구조체 포인터가 가리키는 구조체**의 멤버에 접근할 때 사용
+   
+```c
+struct Person {
+    char name[50];
+    int age;
+};
+
+struct Person *p2 = &p1;
+p2->age = 25; // 화살표 기호 사용
+
+```
+
+2. `.` 기호 예시 코드
+📄 `. (점)`: **구조체 변수의 멤버**에 접근할 때 사용
+```c
+struct Person {
+    char name[50];
+    int age;
+};
+
+struct Person p1;
+p1.age = 30; // 점 기호 사용
+
+```
+3. `->` , `.` 비교 예시 
+```c
+struct Person {
+    char name[50];
+    int age;
+};
+
+struct Person p1;          // 구조체 변수
+struct Person *p2 = &p1;   // 구조체 포인터
+
+p1.age = 30;               // 구조체 변수에 직접 접근
+printf("%d\n", p1.age);    // 출력: 30
+
+p2->age = 25;              // 포인터를 통해 접근 ( 이때 포인터는 p1의 주소를 가리키고 있다) 
+printf("%d\n", p1.age);    // 출력: 25 (p1의 age도 변경됨)
+```
+<hr>
+
+**23년 3회**
+
+```c
+#include<stdio.h>
+int complete(int n) {
+	int sum = 0;
+	for(int j=1; j<=n/2; j++) {
+		if(n%j == 0) {
+			sum = sum+j;
+		}
+	}
+	if(sum==n) {
+		return 1;
+	} else {
+		return 0;
+	}
+}
+int main() {
+	int s = 0;
+	for(int i=1; i<=100; i++) {
+		if(complete(i))
+			s += i;
+	}
+	printf("%d", s);
+}
+```
+
+<details>
+<summary>✅ 정답</summary>
+34
+</details>
+<br>
+
+🖋 **문제 풀이** <br> <br>
+완전수 찾기...<br>
+1. complete 함수는 1부터 n/2까지의 수를 반복하며 약수를 찾는다.<br>
+2. 약수의 합이 n과 같으면 완전수로 판단한다. <br>
+3. main 함수에서 1부터 100까지의 수를 검사하여 완전수의 합을 구한다.<br><br>
+1부터 100까지의 완전수<br>
+6 (1 + 2 + 3 = 6)<br>
+28 (1 + 2 + 4 + 7 + 14 = 28)<br>
+6 + 28 = 34 <br><br>
+
+번외... 1000의 완전수 <br>
+6, 28, 496 (1 + 2 + 4 + 8 + 16 + 31 + 62 + 124 + 248 = 496)
+
+<hr>
+
+**23년 3회**
+
+```c
+#include<stdio.h>
+int f(int n) {
+	if(n<=1) return 1;
+	else return n*f(n-1);
+}
+int main() {
+	printf("%d", f(7));
+}
+```
+
+<details>
+<summary>✅ 정답</summary>
+5040
+</details>
+<br>
+
+🖋 **문제 풀이** <br> <br>
+재귀함수, 팩토리얼 계산<br><br>
+1. f(int n) 함수<br>
+입력된 정수 n의 팩토리얼을 계산<br>
+기본 사례 n이 1 이하일 경우 1을 반환<br>
+재귀 사례 n이 1보다 클 경우 n * f(n-1)을 반환하여 n의 팩토리얼을 계산<br>
+2. main 함수<br>
+f(7)을 호출하여 7의 팩토리얼을 계산하고, 결과를 출력
+
+<hr>
+
+**24년 1회**
+
+```c 
+#include <stdio.h>
+int main() {
+    int v1 = 0, v2 = 35, v3 = 29;
+    if(v1 > v2 ? v2 : v1) {
+        v2 = v2 << 2;
+    }else{
+        v3 = v3 << 2;
+    }
+    printf("%d", v2+v3);
 }
 ```
