@@ -1525,7 +1525,7 @@ int main(int argc, char* argv[]){
 
 <hr> 
 
-**24년 1회😿😿**
+**24년 1회😿**
 
 ```c 
 #include<stdio.h>
@@ -1553,3 +1553,286 @@ int main(){
     return 0;
 }
 ```
+
+<details>+
+<summary>✅ 정답</summary>
+Nd sc 1
+</details
+<br>
+
+🖋 **문제 풀이** <br> <br>
+**ASCII 코드 번호** <br> 
+**대문자 (A-Z)**<br>
+'A'의 ASCII 코드: 65<br>
+'B'의 ASCII 코드: 66<br>
+'Z'의 ASCII 코드: 90
+...<br><br>
+**소문자 (a-z)**<br>
+'a'의 ASCII 코드: 97<br>
+'b'의 ASCII 코드: 98<br>
+'z'의 ASCII 코드: 122<br>
+...<br><br>
+**소문자 (0-9)**<br>
+'0'의 ASCII 코드: 48<br>
+'1'의 ASCII 코드: 49<br>
+'9': ASCII 코드 57<br>
+...<br><br>
+
+
+코드 분석<br>)<br>
+1. 대문자 변환<br>
+대문자(A-Z)는 5만큼 이동.<br>
+변환식: (p[i] - 'A' + 5) % 26 + 'A'<br>
+예<br>
+'I' (ASCII 73) → 'N' (ASCII 78)<br>
+'T' (ASCII 84) → 'Y' (ASCII 89)<br><br>
+
+2. 소문자 변환<br>
+소문자(a-z)는 10만큼 이동.<br>
+변환식: (p[i] - 'a' + 10) % 26 + 'a'<br>
+예<br>
+'i' (ASCII 105) → 's' (ASCII 115)<br>
+'s' (ASCII 115) → 'c' (ASCII 99)<br>)<br>
+
+3.숫자 변환<br>
+숫자(0-9)는 3만큼 이동.<br>
+변환식: (p[i] - '0' + 3) % 10 + '0'<br>
+예<br>
+'8' (ASCII 56) → '1' (ASCII 49)<br>
+4. 기타 문자<br>
+대문자, 소문자, 숫자가 아닌 문자는 그대로 유지.
+
+**24년 2회😿**
+
+```c 
+#include <stdio.h>
+ 
+int main() {
+    int arr[3][3] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    int* parr[2] = {arr[1], arr[2]};
+    printf("%d", parr[1][1] + *(parr[1]+2) + **parr);
+    
+    return 0;
+}
+```
+
+<details>+
+<summary>✅ 정답</summary>
+21
+</details
+<br>
+
+🖋 **문제 풀이** <br> <br>
+배열 구조 정리
+1. arr 배열<br>
+int arr[3][3] = {1, 2, 3, 4, 5, 6, 7, 8, 9};<br>
+이 배열은 다음과 같이 초기화됨 <br>
+
+```c
+arr[0] = {1, 2, 3}
+arr[1] = {4, 5, 6}
+arr[2] = {7, 8, 9}
+```
+<br>
+
+2.parr 배열<br>
+
+```c
+int* parr[2] = {arr[1], arr[2]};
+```
+<br>
+여기서 parr은 두 개의 포인터를 가진 배열임<br>
+parr[0]은 arr[1] (즉, {4, 5, 6})을 가리킴.<br>
+parr[1]은 arr[2] (즉, {7, 8, 9})을 가리킴.<br><br>
+
+8 + 9 + 4 = 21 결과값 출력 <br>
+
+<hr>
+
+**24년 2회**
+
+```c
+#include <stdio.h>
+#include <string.h>
+ 
+void sumFn(char* d, char* s) {
+    int sum = 0;
+ 
+    while (*s) {
+        *d = *s;
+        d++;
+        s++;
+    }
+    *d = '\0'; 
+}
+ 
+int main() {
+    char* str1 = "first";
+    char str2[50] = "teststring";  
+    int result=0;
+    sumFn(str2, str1);
+ 
+    for (int i = 0; str2[i] != '\0'; i++) {
+        result += i;
+    }
+    printf("%d", result);
+    
+    return 0;
+}
+```
+
+<details>+
+<summary>✅ 정답</summary>
+10
+</details
+<br>
+
+🖋 **문제 풀이** <br> <br>
+1. sumFn 함수<br>
+- 이 함수는 두 개의 문자열 포인터 d와 s를 입력으로 받는다.<br>
+- s 문자열의 내용을 d에 복사하고, 마지막에 널 종료 문자를 추가한다.<br>
+- 즉, s의 내용을 d로 복사하는 역할을 한다.<br><br>
+2. main 함수<br>
+char* str1 = "first"; → str1 포인터는 문자열 "first"를 가리킴.<br>
+char str2[50] = "teststring"; → str2는 "teststring"으로 초기화됨.<br>
+sumFn(str2, str1); → str1의 내용을 str2에 복사, 즉 str2는 이제 "first"가 됨.<br>
+result를 0으로 초기화하고, for 루프를 통해 str2의 각 인덱스 값을 더함.<br><br>
+3. for 루프<br>
+for (int i = 0; str2[i] != '\0'; i++)<br>
+str2는 이제 "first"이므로, 인덱스 0부터 4까지 반복됨.<br>
+result += i;에서 i의 값을 더함.<br><br>
+
+4. 인덱스 값의 합계<br>
+i = 0 → result = 0<br>
+i = 1 → result = 0 + 1 = 1<br>
+i = 2 → result = 1 + 2 = 3<br>
+i = 3 → result = 3 + 3 = 6<br>
+i = 4 → result = 6 + 4 = 10
+
+<hr>
+
+**24년 2회**
+
+```c
+#include <stdio.h>
+ 
+struct node {
+    int n1;
+    struct node *n2;
+};
+ 
+int main() {
+ 
+    struct node a = {10, NULL};
+    struct node b = {20, NULL};
+    struct node c = {30, NULL};
+ 
+    struct node *head = &a;
+    a.n2 = &b;
+    b.n2 = &c;
+ 
+    printf("%d\n", head->n2->n1);
+ 
+    return 0;
+}
+```
+
+<details>+
+<summary>✅ 정답</summary>
+20
+</details
+<br>
+
+🖋 **문제 풀이** <br> <br>
+1. 구조체 정의<br>
+- struct node는 두 개의 멤버<br>
+   - int n1 (정수)<br>
+   - struct node *n2 (다음 노드를 가리키는 포인터)<br><br>
+2.노드 생성<br>
+- a, b, c라는 노드를 만들고 각각 10, 20, 30으로 초기화.
+3. 노드 연결<br>
+- a는 b를 가리키고, b는 c를 가리킴.<br>
+- 리스트 구조: a → b → c<br><br>
+4. 출력<br>
+- head->n2->n1<br>
+    - head는 a를 가리킴.<br>
+    - head->n2는 b를 가리킴.<br>
+     - b.n1은 20.
+
+<hr> 
+
+**24년 2회😿**
+
+```c
+#include <stdio.h>
+ 
+void swap(int a, int b) {
+    int t = a;
+    a = b;
+    b = t;
+}
+ 
+int main() {
+    
+    int a = 11;
+    int b = 19;
+    swap(a, b);
+    
+    switch(a) {
+        case 1:
+            b += 1;
+        case 11:
+            b += 2;
+        default:
+            b += 3;
+        break;
+    }
+    
+    printf("%d", a-b);
+}
+```
+
+<details>+
+<summary>✅ 정답</summary>
+20
+</details
+<br>
+
+🖋 **문제 풀이** <br> <br>
+
+⭐1. swap 함수⭐
+- 두 개의 정수 a와 b를 받아서 서로 바꾸려 하지만, 실제로는 메인 함수의 a와 b에는 영향을 미치지 않음.
+- 함수 내에서만 값이 바뀌고, 메인에서의 a와 b는 여전히 11과 19임.
+
+⭐2. main 함수⭐
+- int a = 11; → a는 11.<br>
+- int b = 19; → b는 19.<br>
+- swap(a, b); → a와 b의 값은 여전히 11과 19.<br><br>
+
+3.switch 문<br>
+- switch(a)는 a의 값이 11이므로 case 11:로 이동.<br>
+- b += 2; → b는 19 + 2 = 21.<br>
+- default:로 이동하여 b += 3; → b는 21 + 3 = 24.<br><br>
+
+4.결과 출력<br>
+- printf("%d", a - b);<br>
+- a - b는 11 - 24 = -13.
+  <br><br>
+
+**함수의 호출 방식과 지역 변수와 전역 변수 간의 차이를 이해하고 있는지**<br>
+각 언어의 호출 방식 요약
+1. C<br>
+기본형 타입: 영향 없음 (값에 의한 호출)<br>
+포인터 사용 시: 외부 변수 변경 가능.<br><br>
+
+2. 파이썬<br>
+기본형 타입 (불변 객체): 영향 없음 (값 복사)<br>
+가변 객체 (예: 리스트): 영향 있음 (내부 수정 가능).<br><br>
+
+3. 자바<br>
+기본형 타입: 영향 없음 (값에 의한 호출)<br>
+객체 타입: 속성은 영향 있음 (객체의 속성 수정 가능).<br><br>
+
+4. 자바스크립트<br>
+기본형 타입: 영향 없음 (값에 의한 호출)<br>
+객체 (예: 배열, 객체): 영향 있음 (속성 수정 가능).
